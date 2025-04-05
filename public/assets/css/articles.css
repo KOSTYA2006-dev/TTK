@@ -1,0 +1,403 @@
+/* Основные стили */
+.articles-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Заголовок и кнопки */
+.articles-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 15px;
+}
+
+/* Сетка статей */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Карточка статьи */
+.article-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+}
+
+.article-image-container {
+    height: 200px;
+    overflow: hidden;
+}
+
+.article-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.article-content {
+    padding: 15px;
+}
+
+.article-content h3 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.article-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 15px;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.article-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Кнопки */
+.btn-create, .btn-history, .btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.btn-create {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+.btn-history {
+    background-color: #2196F3;
+    color: white;
+}
+
+.btn-back {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.btn-view {
+    background: none;
+    border: none;
+    color: #2196F3;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+/* Выпадающее меню */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #f5f5f5;
+}
+
+/* Редактор */
+.editor-container {
+    margin-bottom: 20px;
+}
+
+.ql-toolbar {
+    border-radius: 4px 4px 0 0;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+}
+
+.ql-container {
+    border-radius: 0 0 4px 4px;
+    border: 1px solid #ddd;
+    min-height: 300px;
+}
+
+.ql-editor {
+    min-height: 300px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Формы */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Загрузка изображений */
+.image-upload {
+    margin-bottom: 20px;
+}
+
+.image-preview {
+    margin-top: 10px;
+    max-width: 100%;
+    display: none;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+}
+
+/* История изменений */
+.history-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.history-table-container {
+    overflow-x: auto;
+    margin-bottom: 30px;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.history-table th,
+.history-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.history-table th {
+    background-color: #f5f5f5;
+    font-weight: 500;
+}
+
+.event-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.event-badge.created {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.event-badge.updated {
+    background-color: #2196F3;
+    color: white;
+}
+
+.event-badge.deleted {
+    background-color: #f44336;
+    color: white;
+}
+
+.event-badge.restored {
+    background-color: #FF9800;
+    color: white;
+}
+
+.btn-restore {
+    background: none;
+    border: none;
+    color: #4CAF50;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+/* Модальные окна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 25px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    animation: modalopen 0.3s;
+}
+
+.modal-content.small {
+    max-width: 500px;
+}
+
+@keyframes modalopen {
+    from {opacity: 0; transform: translateY(-20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.close {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: #333;
+}
+
+/* Просмотр статьи */
+.article-view {
+    line-height: 1.6;
+}
+
+.article-content-view {
+    margin-bottom: 20px;
+}
+
+.article-content-view img {
+    max-width: 100%;
+    height: auto;
+}
+
+.article-meta-view {
+    color: #666;
+    font-size: 14px;
+    display: flex;
+    gap: 15px;
+}
+
+/* Пагинация */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Уведомления */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.alert-success {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+}
+
+.alert-danger {
+    background-color: #f2dede;
+    color: #a94442;
+    border: 1px solid #ebccd1;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .articles-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn-submit,
+    .btn-cancel {
+        width: 100%;
+    }
+}
