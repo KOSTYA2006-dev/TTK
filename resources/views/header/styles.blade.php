@@ -1,13 +1,13 @@
 <style>
 /* Кастомные стили для хедера */
 .navbar {
-    background-color: #0056b3 !important;
+    background-color: #dc2626 !important;
     box-shadow: 0 2px 4px rgba(0,0,0,.1);
     padding: 0.5rem 0;
 }
 
 .navbar .container {
-    background-color: #0056b3 !important;
+    background-color: #dc2626 !important;
     padding: 0.5rem 1rem;
     border-radius: 8px;
 }
@@ -72,10 +72,10 @@
     font-size: 1.1rem;
 }
 
-
+/* Стили для кнопки входа/регистрации */
 .btn-primary {
     background: #fff;
-    color: #0056b3;
+    color: #dc2626;
     border: none;
     padding: 0.5rem 1.5rem;
     transition: all 0.3s ease;
@@ -83,14 +83,14 @@
 
 .btn-primary:hover {
     background: rgba(255, 255, 255, 0.9);
-    color: #0056b3;
+    color: #dc2626;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-
+/* Стили для выпадающего меню */
 .dropdown-menu {
-    background: #0056b3;
+    background: #dc2626;
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: 8px;
     padding: 0.5rem;
@@ -121,7 +121,7 @@
     margin: 0.5rem 0;
 }
 
-
+/* Стили для модального окна */
 .modal-content {
     border-radius: 12px;
     border: none;
@@ -145,12 +145,12 @@
 }
 
 .nav-tabs .nav-link:hover {
-    color: #0056b3;
+    color: #dc2626;
     transform: none;
 }
 
 .nav-tabs .nav-link.active {
-    background: #0056b3;
+    background: #dc2626;
     color: #fff !important;
 }
 
@@ -171,8 +171,8 @@
 }
 
 .form-control:focus {
-    border-color: #0056b3;
-    box-shadow: 0 0 0 0.25rem rgba(0, 86, 179, 0.25);
+    border-color: #dc2626;
+    box-shadow: 0 0 0 0.25rem rgba(220, 38, 38, 0.25);
 }
 
 .input-group .btn {
@@ -187,7 +187,7 @@
 /* Адаптивность */
 @media (max-width: 991.98px) {
     .navbar-collapse {
-        background: #0056b3;
+        background: #dc2626;
         padding: 1rem;
         border-radius: 8px;
         margin-top: 1rem;
@@ -202,7 +202,7 @@
     }
 
     .dropdown-menu {
-        background: #0056b3;
+        background: #dc2626;
         border: none;
         margin-top: 0.5rem;
     }

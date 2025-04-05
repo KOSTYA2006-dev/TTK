@@ -21,8 +21,7 @@ Route::post('/admin/{user}/password', [AdminController::class, 'changePassword']
 
 Route::middleware(['auth'])->group(function () {
     // Profile routes
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
-    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
@@ -35,20 +34,20 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{task}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
         Route::put('/{task}', [TaskController::class, 'update'])->name('tasks.update');
         Route::delete('/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
-        Route::put('/{task}/status', [TaskController::class, 'updateStatus'])->name('tasks.update-status');
+        Route::post('/{task}/status', [TaskController::class, 'updateStatus'])->name('tasks.updateStatus');
         Route::get('/{task}/history', [TaskController::class, 'history'])->name('tasks.history');
     });
 
     // Articles routes
-    Route::prefix('articles')->group(function () {
-        Route::get('/', [ArticleController::class, 'index'])->name('articles.index');
-        Route::get('/create', [ArticleController::class, 'create'])->name('articles.create');
-        Route::post('/', [ArticleController::class, 'store'])->name('articles.store');
-        Route::get('/{article}', [ArticleController::class, 'show'])->name('articles.show');
-        Route::get('/{article}/edit', [ArticleController::class, 'edit'])->name('articles.edit');
-        Route::put('/{article}', [ArticleController::class, 'update'])->name('articles.update');
-        Route::delete('/{article}', [ArticleController::class, 'destroy'])->name('articles.destroy');
-        Route::get('/history/list', [ArticleController::class, 'history'])->name('articles.history');
-        Route::put('/{id}/restore', [ArticleController::class, 'restore'])->name('articles.restore');
+    Route::prefix('articles')->name('articles.')->group(function () {
+        Route::get('/', [ArticleController::class, 'index'])->name('index');
+        Route::get('/create', [ArticleController::class, 'create'])->name('create');
+        Route::post('/', [ArticleController::class, 'store'])->name('store');
+        Route::get('/{article}', [ArticleController::class, 'show'])->name('show');
+        Route::get('/{article}/edit', [ArticleController::class, 'edit'])->name('edit');
+        Route::put('/{article}', [ArticleController::class, 'update'])->name('update');
+        Route::delete('/{article}', [ArticleController::class, 'destroy'])->name('destroy');
+        Route::get('/history/list', [ArticleController::class, 'history'])->name('history');
+        Route::put('/{id}/restore', [ArticleController::class, 'restore'])->name('restore');
     });
 });

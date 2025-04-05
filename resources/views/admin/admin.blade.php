@@ -27,11 +27,11 @@
         </div>
     </nav>
 
-    <!-- Основной контент -->
+
     <div class="content">
         <h1>Управление пользователями</h1>
 
-        <!-- Панель фильтрации -->
+
         <div class="filter-panel">
             <div class="filter-group">
                 <input type="text" id="loginFilter" placeholder="Логин пользователя">
@@ -51,7 +51,7 @@
             </div>
         </div>
 
-        <!-- Таблица пользователей -->
+
         <div class="users-table">
             <table>
                 <thead>
@@ -91,7 +91,6 @@
     </div>
 </div>
 
-<!-- Модальное окно редактирования -->
 <div id="editModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('editModal')">&times;</span>
@@ -123,7 +122,7 @@
     </div>
 </div>
 
-<!-- Модальное окно смены пароля -->
+
 <div id="passwordModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('passwordModal')">&times;</span>
@@ -148,7 +147,7 @@
 </div>
 
 <script>
-    // Функции для работы с модальными окнами
+
     function showModal(modalId) {
         document.getElementById(modalId).style.display = 'block';
     }
@@ -157,7 +156,7 @@
         document.getElementById(modalId).style.display = 'none';
     }
 
-    // Закрытие модальных окон при клике вне их
+
     window.onclick = function(event) {
         if (event.target.classList.contains('modal')) {
             event.target.style.display = 'none';
@@ -165,14 +164,14 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-        // Обработчики кнопок отмены
+
         document.querySelectorAll('.cancel-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 closeModal(this.closest('.modal').id);
             });
         });
 
-        // Открытие модального окна редактирования
+
         document.querySelectorAll('.edit-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 const userId = this.getAttribute('data-user-id');
@@ -187,7 +186,7 @@
             });
         });
 
-        // Открытие модального окна смены пароля
+
         document.querySelectorAll('.password-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 const userId = this.getAttribute('data-user-id');
@@ -196,14 +195,13 @@
             });
         });
 
-        // Обработка формы редактирования
+
         document.getElementById('editUserForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
             const formData = new FormData(this);
             const userId = formData.get('id');
 
-            // Используем прямой маршрут /admin/{user} с методом PUT
             fetch(`/admin/${userId}`, {
                 method: 'POST',
                 headers: {
@@ -227,7 +225,7 @@
                 });
         });
 
-        // Обработка формы смены пароля
+ 
         document.getElementById('changePasswordForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
@@ -239,7 +237,7 @@
                 return;
             }
 
-            // Используем прямой маршрут /admin/{user}/password
+
             fetch(`/admin/${userId}/password`, {
                 method: 'POST',
                 headers: {
@@ -262,13 +260,12 @@
                 });
         });
 
-        // Обработка удаления пользователя
         document.querySelectorAll('.delete-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 if (confirm('Вы уверены, что хотите удалить этого пользователя?')) {
                     const userId = this.getAttribute('data-user-id');
 
-                    // Используем прямой маршрут /admin/{user} с методом DELETE
+
                     fetch(`/admin/${userId}`, {
                         method: 'DELETE',
                         headers: {

@@ -135,7 +135,7 @@
                                 <input type="checkbox" class="form-check-input" id="remember" name="remember">
                                 <label class="form-check-label" for="remember">Запомнить меня</label>
                             </div>
-                            <div class="alert alert-danger d-none" id="login-error"></div>
+                            <div class="alert alert-danger d-none" id="loginError"></div>
                             <button type="submit" class="btn btn-primary w-100">
                                 <i class="fas fa-sign-in-alt me-2"></i>Войти
                             </button>
@@ -179,7 +179,7 @@
                                     </button>
                                 </div>
                             </div>
-                            <div class="alert alert-danger d-none" id="register-error"></div>
+                            <div class="alert alert-danger d-none" id="registerError"></div>
                             <button type="submit" class="btn btn-primary w-100">
                                 <i class="fas fa-user-plus me-2"></i>Зарегистрироваться
                             </button>
@@ -191,104 +191,53 @@
     </div>
 </div>
 
-@push('scripts')
 <script>
-function togglePassword(inputId) {
-    const input = document.getElementById(inputId);
-    const button = input.nextElementSibling.querySelector('i');
-    
-    if (input.type === 'password') {
-        input.type = 'text';
-        button.classList.remove('fa-eye');
-        button.classList.add('fa-eye-slash');
-    } else {
-        input.type = 'password';
-        button.classList.remove('fa-eye-slash');
-        button.classList.add('fa-eye');
-    }
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Обработка формы входа
+$(document).ready(function() {
     $('#loginForm').on('submit', function(e) {
         e.preventDefault();
-        const form = $(this);
-        const submitBtn = form.find('button[type="submit"]');
-        const errorDiv = $('#login-error');
-        
-        submitBtn.prop('disabled', true);
-        errorDiv.addClass('d-none');
-        
         $.ajax({
-            url: form.attr('action'),
+            url: $(this).attr('action'),
             method: 'POST',
-            data: form.serialize(),
+            data: $(this).serialize(),
             success: function(response) {
                 if (response.success) {
-                    window.location.href = response.redirect;
+                    window.location.reload();
                 } else {
-                    errorDiv.removeClass('d-none').text(response.message);
+                    $('#loginError').text(response.message).show();
                 }
             },
             error: function(xhr) {
-                if (xhr.status === 422) {
-                    const errors = xhr.responseJSON.errors;
-                    errorDiv.removeClass('d-none').text(Object.values(errors)[0][0]);
-                } else {
-                    errorDiv.removeClass('d-none').text('Произошла ошибка. Попробуйте позже.');
-                }
-            },
-            complete: function() {
-                submitBtn.prop('disabled', false);
+                $('#loginError').text('Произошла ошибка при входе').show();
             }
         });
     });
 
-    // Обработка формы регистрации
     $('#registerForm').on('submit', function(e) {
         e.preventDefault();
-        const form = $(this);
-        const submitBtn = form.find('button[type="submit"]');
-        const errorDiv = $('#register-error');
-        
-        submitBtn.prop('disabled', true);
-        errorDiv.addClass('d-none');
-        
         $.ajax({
-            url: form.attr('action'),
+            url: $(this).attr('action'),
             method: 'POST',
-            data: form.serialize(),
+            data: $(this).serialize(),
             success: function(response) {
                 if (response.success) {
-                    window.location.href = response.redirect;
+                    window.location.reload();
                 } else {
-                    errorDiv.removeClass('d-none').text(response.message);
+                    $('#registerError').text(response.message).show();
                 }
             },
             error: function(xhr) {
-                if (xhr.status === 422) {
-                    const errors = xhr.responseJSON.errors;
-                    errorDiv.removeClass('d-none').text(Object.values(errors)[0][0]);
-                } else {
-                    errorDiv.removeClass('d-none').text('Произошла ошибка. Попробуйте позже.');
-                }
-            },
-            complete: function() {
-                submitBtn.prop('disabled', false);
+                $('#registerError').text('Произошла ошибка при регистрации').show();
             }
         });
     });
 
-    // Очистка ошибок при переключении вкладок
-    $('#authTab button').on('click', function() {
-        $('#login-error, #register-error').addClass('d-none');
+    $('.nav-tabs a').on('shown.bs.tab', function() {
+        $('#loginError, #registerError').hide();
     });
 
-    // Очистка ошибок при открытии модального окна
     $('#authModal').on('show.bs.modal', function() {
-        $('#login-error, #register-error').addClass('d-none');
+        $('#loginError, #registerError').hide();
         $('#loginForm, #registerForm')[0].reset();
     });
 });
 </script>
-@endpush

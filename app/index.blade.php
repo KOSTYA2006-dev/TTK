@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Полезная информация | TravelBuddy</title>
+    <title>Полезная информация | TTK</title>
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/articles.css">
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
@@ -81,7 +81,7 @@
     </div>
 </main>
 
-<!-- Модальное окно создания статьи -->
+
 <div id="createArticleModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('createArticleModal')">&times;</span>
@@ -109,7 +109,7 @@
     </div>
 </div>
 
-<!-- Модальное окно просмотра статьи -->
+
 <div id="viewArticleModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('viewArticleModal')">&times;</span>
@@ -125,7 +125,7 @@
     </div>
 </div>
 
-<!-- Модальное окно подтверждения удаления -->
+
 <div id="deleteArticleModal" class="modal">
     <div class="modal-content small">
         <h2>Подтверждение удаления</h2>
@@ -143,7 +143,7 @@
 
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 <script>
-    // Инициализация редактора
+
     const quillCreate = new Quill('#editorCreate', {
         theme: 'snow',
         modules: {
@@ -157,21 +157,21 @@
         placeholder: 'Начните вводить текст статьи...'
     });
 
-    // Функция для отправки формы
+
     async function submitArticleForm() {
         try {
-            // Получаем HTML-содержимое редактора
+
             const content = quillCreate.root.innerHTML;
             document.getElementById('articleContent').value = content;
 
-            // Проверяем заполнение обязательных полей
+
             const title = document.getElementById('articleTitle').value.trim();
             if (!title || !content || content === '<p><br></p>') {
                 showError('Пожалуйста, заполните все обязательные поля');
                 return;
             }
 
-            // Создаем FormData
+  
             const form = document.getElementById('createArticleForm');
             const formData = new FormData(form);
 
@@ -203,7 +203,6 @@
         }
     }
 
-    // Просмотр статьи
     async function showArticle(articleId) {
         try {
             const response = await fetch(`/stati/${articleId}`);
@@ -233,13 +232,12 @@
         }
     }
 
-    // Подтверждение удаления
+
     function confirmDelete(articleId) {
         document.getElementById('deleteArticleForm').action = `/stati/${articleId}`;
         showModal('deleteArticleModal');
     }
 
-    // Обработчик для формы удаления
     document.getElementById('deleteArticleForm').addEventListener('submit', async function(e) {
         e.preventDefault();
 
@@ -271,7 +269,7 @@
         }
     });
 
-    // Общие функции для модальных окон
+
     function showModal(modalId) {
         document.getElementById(modalId).style.display = 'block';
     }
@@ -280,7 +278,6 @@
         document.getElementById(modalId).style.display = 'none';
     }
 
-    // Функция для отображения ошибок
     function showError(message) {
         const alertDiv = document.createElement('div');
         alertDiv.className = 'alert alert-danger';
@@ -294,7 +291,7 @@
         }, 5000);
     }
 
-    // Закрытие модальных окон при клике вне их
+
     window.onclick = function(event) {
         if (event.target.classList.contains('modal')) {
             event.target.style.display = 'none';

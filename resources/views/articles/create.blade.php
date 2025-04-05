@@ -55,7 +55,7 @@
 
 @push('scripts')
 <script>
-    // Обработчик изменения изображения
+
     document.getElementById('image').addEventListener('change', function(e) {
         const file = e.target.files[0];
         if (file) {
@@ -70,7 +70,7 @@
         }
     });
 
-    // Обработчик отправки формы
+
     document.getElementById('createForm').addEventListener('submit', function(e) {
         e.preventDefault();
         console.log('Form submitted');
@@ -81,10 +81,10 @@
             return;
         }
         
-        // Создаем FormData для отправки
+
         const formData = new FormData(this);
         
-        // Отправляем запрос
+
         fetch(this.action, {
             method: 'POST',
             body: formData,
