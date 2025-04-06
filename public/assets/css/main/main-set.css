@@ -1,0 +1,170 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Ubuntu", sans-serif;
+}
+
+@-webkit-keyframes bg-scrolling-reverse {
+    100% {
+        background-position: 50px 50px;
+    }
+}
+@-moz-keyframes bg-scrolling-reverse {
+    100% {
+        background-position: 50px 50px;
+    }
+}
+@-o-keyframes bg-scrolling-reverse {
+    100% {
+        background-position: 50px 50px;
+    }
+}
+@keyframes bg-scrolling-reverse {
+    100% {
+        background-position: 50px 50px;
+    }
+}
+@-webkit-keyframes bg-scrolling {
+    0% {
+        background-position: 50px 50px;
+    }
+}
+@-moz-keyframes bg-scrolling {
+    0% {
+        background-position: 50px 50px;
+    }
+}
+@-o-keyframes bg-scrolling {
+    0% {
+        background-position: 50px 50px;
+    }
+}
+@keyframes bg-scrolling {
+    0% {
+        background-position: 50px 50px;
+    }
+}
+
+::selection {
+    background: #ff002f;
+    color: black;
+    text-shadow: none;
+}
+
+::-moz-selection {
+    background: #ff002f;
+    color: #EEE;
+    text-shadow: none;
+}
+
+/*body {*/
+
+/*    !* img size is 50x50 *!*/
+/*    background: url("../img/img.png") repeat 0 0;*/
+
+/*    -webkit-animation: bg-scrolling-reverse 1.92s infinite;*/
+
+/*    -moz-animation: bg-scrolling-reverse 2.92s infinite;*/
+
+/*    -o-animation: bg-scrolling-reverse 2.92s infinite;*/
+
+/*    animation: bg-scrolling-reverse 2.92s infinite;*/
+
+/*    -webkit-animation-timing-function: linear;*/
+/*    -moz-animation-timing-function: linear;*/
+/*    -o-animation-timing-function: linear;*/
+/*    animation-timing-function: linear;*/
+/*}*/
+
+body{
+    background: #ffffff;
+}
+
+
+
+
+
+ul{
+    list-style: none;
+}
+
+.container {
+    padding: 0 60px;
+    margin-left: 5px;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+p{
+    margin-top: 5px;
+    margin-bottom: 8px;
+}
+
+h1{
+    font-size: 84px;
+    font-weight: bold;
+
+}
+
+h2{
+    font-size: 54px;
+    font-weight: bold;
+}
+
+
+
+
+.ubuntu-light {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.ubuntu-regular {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.ubuntu-medium {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.ubuntu-bold {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.ubuntu-light-italic {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.ubuntu-regular-italic {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.ubuntu-medium-italic {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.ubuntu-bold-italic {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}

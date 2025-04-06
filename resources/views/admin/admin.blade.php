@@ -49,6 +49,11 @@
             <div class="filter-group">
                 <input type="date" id="dateFilter">
             </div>
+            <div class="filter-group">
+                <button id="applyFilters" class="btn btn-primary">
+                    <i class="fas fa-filter"></i> Применить фильтры
+                </button>
+            </div>
         </div>
 
 
@@ -288,7 +293,99 @@
                 }
             });
         });
+
+        const loginFilter = document.getElementById('loginFilter');
+        const nameFilter = document.getElementById('nameFilter');
+        const roleFilter = document.getElementById('roleFilter');
+        const dateFilter = document.getElementById('dateFilter');
+        const applyFiltersBtn = document.getElementById('applyFilters');
+        const userTable = document.querySelector('.users-table tbody');
+        const rows = userTable.getElementsByTagName('tr');
+
+        function filterUsers() {
+            const loginValue = loginFilter.value.toLowerCase();
+            const nameValue = nameFilter.value.toLowerCase();
+            const roleValue = roleFilter.value;
+            const dateValue = dateFilter.value;
+
+            Array.from(rows).forEach(row => {
+                const login = row.cells[0].textContent.toLowerCase();
+                const name = row.cells[1].textContent.toLowerCase();
+                const role = row.cells[2].textContent.toLowerCase();
+                const date = row.cells[3].textContent;
+
+                const loginMatch = login.includes(loginValue);
+                const nameMatch = name.includes(nameValue);
+                const roleMatch = roleValue === '' || role.includes(roleValue);
+                const dateMatch = dateValue === '' || date === dateValue;
+
+                if (loginMatch && nameMatch && roleMatch && dateMatch) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        applyFiltersBtn.addEventListener('click', filterUsers);
     });
 </script>
+
+<style>
+.filter-panel {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.filter-group {
+    flex: 1;
+}
+
+.filter-group input,
+.filter-group select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.filter-group input:focus,
+.filter-group select:focus {
+    border-color: #e31235;
+    box-shadow: 0 0 0 0.2rem rgba(227, 18, 53, 0.25);
+    outline: none;
+}
+
+#applyFilters {
+    width: 100%;
+    padding: 8px 12px;
+    background-color: #e31235;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#applyFilters:hover {
+    background-color: #c0102d;
+}
+
+#applyFilters i {
+    margin-right: 5px;
+}
+
+@media (max-width: 768px) {
+    .filter-panel {
+        flex-direction: column;
+    }
+}
+</style>
 </body>
 </html>

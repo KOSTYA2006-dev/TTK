@@ -23,13 +23,13 @@
                         <i class="fas fa-tasks me-1"></i> Задачи
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link {{ request()->is('about*') ? 'active' : '' }}" href="{{ url('/about') }}">
                         <i class="fas fa-info-circle me-1"></i> О нас
                     </a>
-                </li>
+                </li> -->
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->is('contact*') ? 'active' : '' }}" href="{{ url('/contact') }}">
+                    <a class="nav-link {{ request()->is('contact*') ? 'active' : '' }}" href="{{ route('game.index') }}">
                         <i class="fas fa-envelope me-1"></i> Игра
                     </a>
                 </li>
@@ -57,21 +57,7 @@
                                     <i class="fas fa-user me-2"></i> Мой профиль
                                 </a>
                             </li>
-                            <li>
-                                <a class="dropdown-item" href="{{ url('/my-tours') }}">
-                                    <i class="fas fa-suitcase me-2"></i> Мои туры
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="{{ url('/favorites') }}">
-                                    <i class="fas fa-heart me-2"></i> Избранное
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="{{ url('/settings') }}">
-                                    <i class="fas fa-cog me-2"></i> Настройки
-                                </a>
-                            </li>
+                           
                             <li><hr class="dropdown-divider"></li>
                             <li>
                                 <form action="{{ route('logout') }}" method="POST" class="dropdown-item">
@@ -110,7 +96,7 @@
             </div>
             <div class="modal-body pt-4">
                 <div class="tab-content" id="authTabContent">
-                    <!-- Вкладка входа -->
+
                     <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
                         <form method="POST" action="{{ route('login') }}" id="loginForm">
                             @csrf
@@ -141,7 +127,7 @@
                             </button>
                         </form>
                     </div>
-                    <!-- Вкладка регистрации -->
+
                     <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
                         <form method="POST" action="{{ route('register') }}" id="registerForm">
                             @csrf

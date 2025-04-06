@@ -27,7 +27,7 @@
                 <select class="form-select" id="responsible_id" name="responsible_id" required>
                     <option value="">Выберите ответственного</option>
                     @foreach($users as $user)
-                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                        <option value="{{ $user->id }}">{{ $user->full_name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -58,4 +58,4 @@
         </form>
     </div>
 </div>
-@endsection 
+@endsection

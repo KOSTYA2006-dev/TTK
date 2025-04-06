@@ -17,7 +17,7 @@
                         <div>
                             <div class="flex items-center space-x-2">
                                 <span class="text-sm text-gray-500">{{ $record->created_at->format('d.m.Y H:i') }}</span>
-                                <span class="text-sm font-medium">{{ $record->user->name }}</span>
+                                <span class="text-sm font-medium">{{ $record->user->full_name }}</span>
                             </div>
                             <div class="mt-2">
                                 <span class="px-2 py-1 text-xs font-medium rounded-full
@@ -71,7 +71,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title">Подробные изменения</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
                             </div>
                             <div class="modal-body">
                                 <div class="space-y-4">

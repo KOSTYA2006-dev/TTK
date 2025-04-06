@@ -1,0 +1,117 @@
+.about-block{
+    width: 100%;
+    height: auto;
+    padding: 60px 0;
+
+    background: #eaeaea;
+
+    /*background: #7f00f5;*/
+
+
+}
+
+.about-block__content__info{
+    color: #1b1b1b;
+}
+
+.about-block__content__info__text{
+    width: 700px; font-size: 17px;
+    font-family: Montserrat Alternates;
+    font-weight: 800;
+    line-height: 30px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    color: #1b1b1b;
+}
+
+
+.about-block__content{
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+
+
+.card-info {
+    width: 400px;
+    height: 450px;
+    color: #1b1b1b;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 5px;
+    overflow: visible;
+}
+
+.card-info .item2 {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.item2:hover {
+    transform: scale(1.10);
+    transition: all 0.4s ease-in-out;
+    rotate: -20deg;
+    cursor: pointer;
+
+}
+
+.item2 svg {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 7px;
+}
+
+.item--1 {
+    background: #ffffff;
+}
+
+.item--2 {
+    background: none;
+    border: 4px solid #ffffff;
+}
+
+.item--3 {
+    background: none;
+    border: 4px solid #ffffff;
+}
+
+.item--4 {
+    background: #ffffff;
+}
+
+
+.black{
+    color: black;
+}
+.quantity {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.text {
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+.text--1 {
+    color: rgb(0, 0, 0);
+}
+
+.text--2 {
+    color: rgb(255, 255, 255);
+}
+
+.text--3 {
+    color: rgb(255, 255, 255);
+}
+
+.text--4 {
+    color: rgb(0, 0, 0);
+}

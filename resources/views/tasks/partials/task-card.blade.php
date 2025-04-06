@@ -9,7 +9,7 @@
             <div class="flex items-center space-x-2 mt-1">
                 <span class="text-sm text-gray-500">{{ $task->created_at->format('d.m.Y') }}</span>
                 <span class="text-sm text-gray-500">•</span>
-                <span class="text-sm text-gray-500">{{ $task->responsible->name }}</span>
+                <span class="text-sm text-gray-500">{{ $task->responsible->full_name }}</span>
             </div>
         </div>
         <div class="flex items-center space-x-2">
@@ -73,14 +73,14 @@
     </div>
 
     @if($task->images)
-        <div class="mt-4">
+        <div class="mt-3" style="margin-top: 20px">
             <div class="flex space-x-2">
                 @foreach($task->images as $image)
                     <a href="{{ asset('storage/' . $image) }}" target="_blank" class="block">
-                        <img src="{{ asset('storage/' . $image) }}" alt="Task image" class="w-12 h-12 object-cover rounded">
+                        <img src="{{ asset('storage/' . $image) }}" alt="Task image" class=" object-cover rounded" style="width: 300px">
                     </a>
                 @endforeach
             </div>
         </div>
     @endif
-</div> 
+</div>

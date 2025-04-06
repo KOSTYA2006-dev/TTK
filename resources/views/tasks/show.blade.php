@@ -80,12 +80,12 @@
 
                     <div>
                         <label class="text-sm text-gray-500">Создатель</label>
-                        <div class="mt-1">{{ $task->user->name }}</div>
+                        <div class="mt-1">{{ $task->user->full_name }}</div>
                     </div>
 
                     <div>
                         <label class="text-sm text-gray-500">Ответственный</label>
-                        <div class="mt-1">{{ $task->responsible->name }}</div>
+                        <div class="mt-1">{{ $task->responsible->full_name }}</div>
                     </div>
                 </div>
             </div>

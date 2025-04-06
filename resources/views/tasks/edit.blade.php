@@ -29,7 +29,7 @@
                     <option value="">Выберите ответственного</option>
                     @foreach($users as $user)
                         <option value="{{ $user->id }}" {{ $task->responsible_id == $user->id ? 'selected' : '' }}>
-                            {{ $user->name }}
+                            {{ $user->full_name }}
                         </option>
                     @endforeach
                 </select>

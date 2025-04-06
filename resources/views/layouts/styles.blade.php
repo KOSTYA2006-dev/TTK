@@ -1,5 +1,6 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}">
 @stack('styles')
 
 <style>
@@ -195,11 +196,11 @@ body {
     .container {
         padding: 10px;
     }
-    
+
     .card {
         margin-bottom: 15px;
     }
-    
+
     .btn {
         width: 100%;
         margin-bottom: 10px;
@@ -260,10 +261,12 @@ body {
     .profile-container {
         padding: 10px;
     }
-    
+
     .profile-avatar {
         width: 100px;
         height: 100px;
     }
 }
-</style> 
+
+
+</style>
